@@ -1,0 +1,36 @@
+-- ZAD 24
+
+"SELECT IRSTREAM spolka AS X, kursOtwarcia AS Y " +
+                        "FROM KursAkcji.win:length(3) " +
+                        "WHERE spolka = 'Oracle'"
+-- ZAD 25
+
+"SELECT IRSTREAM data, kursOtwarcia, spolka " +
+                        "FROM KursAkcji.win:length(3) " +
+                        "WHERE spolka = 'Oracle'"
+
+-- ZAD 26
+
+"SELECT IRSTREAM data, kursOtwarcia, spolka " +
+                        "FROM KursAkcji(spolka = 'Oracle').win:length(3) "
+
+-- ZAD 27
+
+"SELECT ISTREAM data, kursOtwarcia, spolka " +
+                        "FROM KursAkcji(spolka = 'Oracle').win:length(3) "
+
+-- ZAD 28
+
+ "SELECT ISTREAM data, MAX(kursOtwarcia), spolka " +
+                        "FROM KursAkcji(spolka = 'Oracle').win:length(5) "
+
+-- ZAD 29
+
+"SELECT ISTREAM data, kursOtwarcia - MAX(kursOtwarcia) AS roznica, spolka " +
+                        "FROM KursAkcji(spolka = 'Oracle').win:length(5) "
+
+-- ZAD 30
+
+SELECT ISTREAM data, kursOtwarcia - MIN(kursOtwarcia) AS roznica, spolka " +
+                        "FROM KursAkcji(spolka = 'Oracle').win:length(2) " +
+                        "HAVING kursOtwarcia - MIN(kursOtwarcia) > 0"
